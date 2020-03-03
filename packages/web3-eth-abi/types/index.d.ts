@@ -19,24 +19,26 @@
 
 import { AbiInput, AbiItem } from 'web3-utils';
 
-export class AbiCoder {
-    encodeFunctionSignature(functionName: string | AbiItem): string;
+declare namespace AbiCoder {
+    export function encodeFunctionSignature(functionName: string | AbiItem): string;
 
-    encodeEventSignature(functionName: string | AbiItem): string;
+    export function encodeEventSignature(functionName: string | AbiItem): string;
 
-    encodeParameter(type: any, parameter: any): string;
+    export function encodeParameter(type: any, parameter: any): string;
 
-    encodeParameters(types: any[], paramaters: any[]): string;
+    export function encodeParameters(types: any[], paramaters: any[]): string;
 
-    encodeFunctionCall(abiItem: AbiItem, params: string[]): string;
+    export function encodeFunctionCall(abiItem: AbiItem, params: string[]): string;
 
-    decodeParameter(type: any, hex: string): { [key: string]: any };
+    export function decodeParameter(type: any, hex: string): { [key: string]: any };
 
-    decodeParameters(types: any[], hex: string): { [key: string]: any };
+    export function decodeParameters(types: any[], hex: string): { [key: string]: any };
 
-    decodeLog(
+    export function decodeLog(
         inputs: AbiInput[],
         hex: string,
         topics: string[]
     ): { [key: string]: string };
 }
+
+export default AbiCoder
